@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ავტორიზაცია</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <h2>ავტორიზაცია</h2>
+        <form action="index.html" method="POST" class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="შეიყვანეთ თქვენი ელ.ფოსტა">
+                <p id="emailError" class="error-message" aria-live="polite"></p>
+            </div>
+            <div class="form-group">
+                <label for="password">პაროლი</label>
+                <input type="password" id="password" name="password" required placeholder="*************">
+                <p id="passwordError" class="error-message" aria-live="polite"></p>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="submit-btn">შესვლა</button>
+                <a href="registration.html" class="register-link">
+                    <i class="fas fa-user-plus"></i> რეგისტრაცია
+                </a>
+            </div>
+        </form>
+    </div>
+    
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+    let valid = true;
+
+    const email = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    emailError.textContent = '';
+    if (!email.value.match(emailRegex)) {
+        emailError.textContent = 'გთხოვთ, შეიყვანოთ ვალიდური ელ.ფოსტა';
+        valid = false;
+    }
+
+    const password = document.getElementById('password');
+    const passwordError = document.getElementById('passwordError');
+
+    passwordError.textContent = '';
+    if (password.value.trim().length < 6) {
+        passwordError.textContent = 'პაროლი უნდა იყოს მინიმუმ 6 სიმბოლო';
+        valid = false;
+    }
+
+    if (!valid) {
+        event.preventDefault();
+    }
+});
+
+    </script>
+</body>
+</html>
