@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header & Footer (Blue Color) */
+
 header {
     background-color: #004aad;
     color: white;
@@ -30,7 +30,7 @@ footer {
     margin-top: auto;
 }
 
-/* Navigation with Border and Shadow */
+
 .home-nav {
     list-style-type: none;
     margin: 20px auto;
@@ -61,7 +61,7 @@ footer {
     transition: 0.3s ease;
 }
 
-/* Contact Form */
+
 .contact {
     padding: 2em;
     flex: 1;
